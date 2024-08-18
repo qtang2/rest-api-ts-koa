@@ -15,6 +15,14 @@ router.get(
     ctx.body = { msg: "hello world!" };
   }
 );
+router.get(
+  "/test/:id",
+  async (ctx: ParameterizedContext<DefaultState, DefaultContext>) => {
+    console.log('ctx', ctx.params);
+    
+    ctx.body = { msg: `hello world test` };
+  }
+);
 
 app.use(router.routes()).use(router.allowedMethods());
 
